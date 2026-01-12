@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LiveAI Webcam - Gemini Live</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎥 LiveAI Webcam</h1>
+            <p class="subtitle">Powered by Gemini Live API</p>
+        </header>
+
+        <main>
+            <!-- Camera Preview -->
+            <div class="video-container">
+                <video id="videoPreview" autoplay playsinline muted></video>
+                <div class="video-overlay">
+                    <div id="statusIndicator" class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span id="statusText">Initializing...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <button id="switchCameraBtn" class="btn btn-secondary" title="Switch Camera">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 3h4v4M7 21H3v-4M21 7l-5 5M3 17l5-5"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    Switch Camera
+                </button>
+
+                <button id="startBtn" class="btn btn-primary">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polygon points="10 8 16 12 10 16 10 8"/>
+                    </svg>
+                    Start Session
+                </button>
+
+                <button id="stopBtn" class="btn btn-danger" disabled>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <rect x="9" y="9" width="6" height="6"/>
+                    </svg>
+                    Stop Session
+                </button>
+            </div>
+
+            <!-- Audio Visualization -->
+            <div class="audio-visualizer">
+                <canvas id="audioCanvas"></canvas>
+            </div>
+
+            <!-- Info Panel -->
+            <div class="info-panel">
+                <div class="info-item">
+                    <span class="info-label">Camera:</span>
+                    <span id="cameraInfo">Not started</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Microphone:</span>
+                    <span id="micInfo">Not started</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Connection:</span>
+                    <span id="connectionInfo">Disconnected</span>
+                </div>
+            </div>
+
+            <!-- Transcript -->
+            <div class="transcript-container">
+                <h3>Conversation Transcript</h3>
+                <div id="transcript" class="transcript"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Test both front and back cameras on your smartphone</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
