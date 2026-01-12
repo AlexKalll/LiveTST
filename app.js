@@ -175,8 +175,8 @@ function createAudioWorkletBlob() {
         registerProcessor('audio-processor', AudioProcessor);
     `;
 
-    const blob = new Blob([processorCode], { type: 'application/javascript' });
-    return URL.createObjectURL(blob);
+    // Use data URL instead of blob URL for better compatibility
+    return 'data:application/javascript;base64,' + btoa(processorCode);
 }
 
 // Connect to Gemini Live API
